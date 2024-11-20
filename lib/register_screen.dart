@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hire_mi/RegisterScreenVerified.dart';
 import 'package:hire_mi/password_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: const Text(
           "Create Account",
           style: TextStyle(
-            color: Color(0xffC1272D),
+            color: Color(0xff0F3CC9),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -36,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                color: Color(0xff555555),
               ),
               textAlign: TextAlign.center,
             ),
@@ -54,9 +55,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 30,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: index < 3 ? const Color(0xffC1272D) : Colors.white,
+                          color: index < 3 ? const Color(0xff002496) : Colors.white,
                           border: Border.all(
-                            color: const Color(0xffC1272D),
+                            color: const Color(0xff002496),
                             width: 2,
                           ),
                         ),
@@ -72,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Container(
                           width: 40,
                           height: 2,
-                          color: const Color(0xffC1272D),
+                          color: const Color(0xff002496),
                         ),
                     ],
                   );
@@ -89,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   CustomDropdownField(label: "Select State"),
                   CustomDropdownField(label: "Select Branch"),
                   CustomDropdownField(label: "Select Course"),
-                  CustomDropdownField(label: "Select Year"),
+                  CustomInputField(label: "Select Year"), // Changed this line
                 ],
               ),
             ),
@@ -99,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>RegisterScreenVerified()));},
                   child: const Text(
                     "Back",
                     style: TextStyle(
@@ -117,11 +118,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xffC1272D),
+                    backgroundColor: const Color(0xff0F3CC9),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    shadowColor: Colors.blue.withOpacity(0.5),
+                    shadowColor: const Color(0xffCBD6FF),
                     elevation: 8,
                   ),
                   child: const Padding(
@@ -159,12 +160,12 @@ class CustomInputField extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 14,
-              color: Colors.black,
+              color: Color(0xff626262),
             ),
             children: [
               const TextSpan(
                 text: "*",
-                style: TextStyle(color: Color(0xffC1272D)),
+                style: TextStyle(color: Color(0xff0F3CC9)),
               ),
             ],
           ),
@@ -176,17 +177,15 @@ class CustomInputField extends StatelessWidget {
             filled: true,
             fillColor: const Color(0xFFF1F4FF),
             border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red),
-              //borderSide: const BorderSide(color: Color(0xffB6B6B6), width: 1.5),
               borderRadius: BorderRadius.circular(8),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffC1272D)),
+              borderSide: const BorderSide(color: Color(0xff0F3CC9)),
               borderRadius: BorderRadius.circular(8),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xffC1272D), width: 1.5),
+              borderSide: const BorderSide(color: Color(0xff0F3CC9), width: 1.5),
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),
@@ -219,7 +218,7 @@ class CustomDropdownField extends StatelessWidget {
             children: [
               const TextSpan(
                 text: "*",
-                style: TextStyle(color: Color(0xffC1272D)),
+                style: TextStyle(color: Color(0xff0F3CC9)),
               ),
             ],
           ),
@@ -238,12 +237,12 @@ class CustomDropdownField extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffB6B6B6)),
+              borderSide: const BorderSide(color: Color(0xffB6B6B6)),
               borderRadius: BorderRadius.circular(8),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xffC1272D), width: 1.5),
+              borderSide: const BorderSide(color: Color(0xff0F3CC9), width: 1.5),
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),

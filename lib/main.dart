@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hire_mi/RegisterScreen0.dart';
 import 'package:hire_mi/register_screen.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterScreen(),
+      home:  RegisterScreen0(),
     );
   }
 }

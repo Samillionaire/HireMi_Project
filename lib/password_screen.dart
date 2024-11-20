@@ -21,7 +21,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
         title: const Text(
           "Create Account",
           style: TextStyle(
-            color: Color(0xffC1272D),
+            color: Color(0xff0F3CC9),
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -72,10 +72,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: index < 4
-                                            ? const Color(0xffC1272D)
+                                            ? const Color(0xff002496)
                                             : Colors.white,
                                         border: Border.all(
-                                          color: const Color(0xffC1272D),
+                                          color: const Color(0xff002496),
                                           width: 2,
                                         ),
                                       ),
@@ -91,7 +91,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                                       Container(
                                         width: 40,
                                         height: 2,
-                                        color: const Color(0xffC1272D),
+                                        color: const Color(0xff002496),
                                       ),
                                   ],
                                 );
@@ -107,7 +107,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                             TextSpan(
                               text: "Min 8 characters",
                               style: TextStyle(
-                                  fontSize: 12, color: Color(0xFF34AD78)),
+                                  fontSize: 12, color: Color(0xFF0F3CC9)),
                               children: [
                                 TextSpan(
                                   text:
@@ -166,7 +166,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                             ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xffC1272D),
+                                backgroundColor: const Color(0xff0F3CC9),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -229,7 +229,7 @@ class CustomPasswordField extends StatelessWidget {
             children: [
               const TextSpan(
                 text: "*",
-                style: TextStyle(color: Color(0xffC1272D)),
+                style: TextStyle(color: Color(0xff0F3CC9)),
               ),
             ],
           ),
@@ -254,7 +254,7 @@ class CustomPasswordField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(
-                color: Color(0xffC1272D),
+                color: Color(0xff0F3CC9),
                 width: 1.5,
               ),
             ),
