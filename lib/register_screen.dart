@@ -12,36 +12,42 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Create Account",
           style: TextStyle(
-            color: Color(0xff0F3CC9),
-            fontSize: 18,
+            color: const Color(0xff0F3CC9),
+            fontSize: screenHeight * 0.022, // Responsive font size
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.05, // Responsive horizontal padding
+          vertical: screenHeight * 0.01, // Responsive vertical padding
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: screenHeight * 0.01), // Responsive spacing
+            Text(
               "Educational Information",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: screenHeight * 0.02, // Responsive font size
                 fontWeight: FontWeight.w600,
-                color: Color(0xff555555),
+                color: const Color(0xff555555),
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02), // Responsive spacing
             // Progress Indicator
             SizedBox(
               width: double.infinity,
@@ -51,28 +57,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   return Row(
                     children: [
                       Container(
-                        height: 30,
-                        width: 30,
+                        height: screenHeight * 0.04, // Responsive size
+                        width: screenHeight * 0.04, // Responsive size
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: index < 3 ? const Color(0xff002496) : Colors.white,
+                          color: index < 3
+                              ? const Color(0xff002496)
+                              : Colors.white,
                           border: Border.all(
                             color: const Color(0xff002496),
                             width: 2,
                           ),
                         ),
                         child: index < 3
-                            ? const Icon(
+                            ? Icon(
                           Icons.check,
                           color: Colors.white,
-                          size: 18,
+                          size: screenHeight * 0.02, // Responsive size
                         )
                             : const SizedBox(),
                       ),
                       if (index < 3)
                         Container(
-                          width: 40,
-                          height: 2,
+                          width: screenWidth * 0.1, // Responsive width
+                          height: screenHeight * 0.003, // Responsive height
                           color: const Color(0xff002496),
                         ),
                     ],
@@ -80,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 }),
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: screenHeight * 0.03), // Responsive spacing
             // Input Fields
             Flexible(
               child: ListView(
@@ -94,18 +102,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 20), // Add a smaller gap before buttons
+            SizedBox(height: screenHeight * 0.05), // Responsive spacing
             // Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>RegisterScreenVerified()));},
-                  child: const Text(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => RegisterScreenVerified()),
+                    );
+                  },
+                  child: Text(
                     "Back",
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 16,
+                      fontSize: screenHeight * 0.02, // Responsive font size
                     ),
                   ),
                 ),
@@ -125,12 +139,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     shadowColor: const Color(0xffCBD6FF),
                     elevation: 8,
                   ),
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 30.0, vertical: 12.0),
+                      horizontal: screenWidth * 0.08, // Responsive padding
+                      vertical: screenHeight * 0.015, // Responsive padding
+                    ),
                     child: Text(
                       "Proceed",
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(
+                        fontSize: screenHeight * 0.02, // Responsive font size
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -151,16 +170,18 @@ class CustomInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RichText(
           text: TextSpan(
             text: label,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 14,
-              color: Color(0xff626262),
+              fontSize: screenHeight * 0.018, // Responsive font size
+              color: const Color(0xff626262),
             ),
             children: [
               const TextSpan(
@@ -170,7 +191,7 @@ class CustomInputField extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: screenHeight * 0.01), // Responsive spacing
         TextField(
           decoration: InputDecoration(
             hintText: label,
@@ -185,12 +206,17 @@ class CustomInputField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xff0F3CC9), width: 1.5),
+              borderSide: const BorderSide(
+                color: Color(0xff0F3CC9),
+                width: 1.5,
+              ),
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.03,
+            ),
           ),
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: screenHeight * 0.02), // Responsive spacing
       ],
     );
   }
@@ -204,15 +230,17 @@ class CustomDropdownField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RichText(
           text: TextSpan(
             text: label,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 14,
+              fontSize: screenHeight * 0.018, // Responsive font size
               color: Colors.black,
             ),
             children: [
@@ -223,7 +251,7 @@ class CustomDropdownField extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: screenHeight * 0.01), // Responsive spacing
         DropdownButtonFormField<String>(
           items: [
             DropdownMenuItem(value: "1", child: Text(label)),
@@ -242,12 +270,17 @@ class CustomDropdownField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Color(0xff0F3CC9), width: 1.5),
+              borderSide: const BorderSide(
+                color: Color(0xff0F3CC9),
+                width: 1.5,
+              ),
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.03,
+            ),
           ),
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: screenHeight * 0.02), // Responsive spacing
       ],
     );
   }
